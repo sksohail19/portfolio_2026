@@ -1,23 +1,57 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 
 /* Components */
 import Navbar from './components/navbar'
 import Main from './pages/main'
-function App() {
+import { scrollToSectionId } from './utils/scrollToSection'
 
+const NAV_LINKS = [
+  { label: 'Home', sectionId: 'home' },
+  { label: 'About', sectionId: 'about' },
+  { label: 'Skills', sectionId: 'skills' },
+  { label: 'Experience', sectionId: 'experience' },
+  { label: 'Projects', sectionId: 'projects' },
+  { label: 'Education', sectionId: 'education'},
+  { label: 'Contact', sectionId: 'contact' },
+] as const
+
+function ScrollToHashOnRoute() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.pathname !== '/' || !location.hash) return
+    const id = decodeURIComponent(location.hash.slice(1))
+    if (!id) return
+    const frame = window.requestAnimationFrame(() => scrollToSectionId(id))
+    return () => window.cancelAnimationFrame(frame)
+  }, [location.pathname, location.hash])
+
+  return null
+}
+
+function AppRoutes() {
   return (
     <>
-      <Router>
-        <Navbar title="Shaik Sohail"
-          links={[{ label: 'Home', href: '/' }, { label: 'About', href: '/about' }, { label: "Projects", href: '/projects' }, { label: "Resume", href: '/resume' }, { label: "Experience", href: '/experience' }, { label: 'Contact', href: '/contact' }]}
-          cta={{ label: 'Hire Me', href: '/contact' }}
-        />
-        <Routes>
-          <Route path="/" element={<Main />} />
-        </Routes>
-      </Router>
+      <ScrollToHashOnRoute />
+      <Navbar
+        title="Shaik Sohail"
+        links={[...NAV_LINKS]}
+        cta={{ label: 'Hire Me', sectionId: 'contact' }}
+      />
+      <Routes>
+        <Route path="/" element={<Main />} />
+      </Routes>
     </>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <AppRoutes />
+    </Router>
   )
 }
 

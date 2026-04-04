@@ -13,7 +13,8 @@ export default function Intro() {
 
     return (
         <section
-            className="font-sora bg-surface-base px-4 py-16 sm:px-8 sm:py-20 lg:px-[6%] lg:py-24"
+            id="about"
+            className="font-sora scroll-mt-24 bg-surface-base px-4 py-12 sm:px-8 sm:py-16 lg:px-[6%] lg:py-24"
             aria-labelledby="intro-heading"
         >
             <div className="mx-auto flex max-w-7xl flex-col gap-7 lg:flex-row lg:gap-16 lg:items-start justify-center">

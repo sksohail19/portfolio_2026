@@ -1,8 +1,15 @@
 import heroImage from '@/assets/image.jpg'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { scrollToSectionId } from '@/utils/scrollToSection'
 
 export default function Hero() {
+  const navigate = useNavigate()
+  const location = useLocation()
   return (
-    <section className="font-sora relative isolate max-h-[min(100dvh,56rem)] min-h-[min(100dvh,56rem)] px-4 sm:px-8 lg:px-[6%] py-16 sm:py-20 lg:py-24">
+    <section
+      id="home"
+      className="font-sora relative isolate max-h-[min(100dvh,56rem)] min-h-[min(100dvh,56rem)] scroll-mt-24 px-4 py-12 sm:px-8 sm:py-16 lg:px-[6%] lg:py-24"
+    >
       <div
         className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12]"
         aria-hidden
@@ -28,6 +35,13 @@ export default function Hero() {
             <button
               type="button"
               className="rounded-lg bg-primary-main px-7 py-3  font-semibold text-text-inverse shadow-[0_18px_40px_-14px_rgba(68,102,87,0.55)] transition hover:bg-primary-dark hover:shadow-[0_22px_44px_-12px_rgba(36,70,56,0.45)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-main"
+              onClick={() => {
+                if (location.pathname === '/' && location.hash === '#projects') {
+                  scrollToSectionId('projects')
+                } else {
+                  navigate({ pathname: '/', hash: '#projects' }, { replace: true })
+                }
+              }}
             >
               View projects
             </button>

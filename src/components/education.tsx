@@ -63,7 +63,8 @@ const EDUCATION: Education[] = [
 export default function Education() {
   return (
     <section
-      className="font-sora border-t border-secondary-subtle/40 bg-surface-base px-4 py-16 sm:px-8 sm:py-20 lg:px-[6%] lg:py-24"
+      id="education"
+      className="font-sora scroll-mt-24 border-t border-secondary-subtle/40 bg-surface-base px-4 py-12 sm:px-8 sm:py-16 lg:px-[6%] lg:py-24"
       aria-labelledby="education-heading"
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-10">
