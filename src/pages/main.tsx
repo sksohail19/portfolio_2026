@@ -5,6 +5,7 @@ import Projects from '../components/projects'
 import Education from '../components/education'
 import Contact from '../components/contact'
 import Footer from '../components/footer'
+import Work from '../components/work'
 
 export default function Main() {
     return (
@@ -12,6 +13,7 @@ export default function Main() {
             <Hero />
             <Intro />
             <Skills />
+            <Work />
             <Projects />
             <Education />
             <Contact />
