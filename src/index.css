@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
+
+@layer base {
+  html {
+    scroll-padding-top: 5.5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}

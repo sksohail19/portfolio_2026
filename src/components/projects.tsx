@@ -202,7 +202,8 @@ export default function Projects() {
   return (
     <>
       <section
-        className="font-sora border-t border-secondary-subtle/40 bg-surface-base px-4 py-16 sm:px-8 sm:py-20 lg:px-[6%] lg:py-24"
+        id="projects"
+        className="font-sora scroll-mt-24 border-t border-secondary-subtle/40 bg-surface-base px-4 py-12 sm:px-8 sm:py-16 lg:px-[6%] lg:py-24"
         aria-labelledby="projects-heading"
       >
         <div className="mx-auto flex max-w-7xl flex-col gap-10">
@@ -289,7 +290,7 @@ export default function Projects() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="case-study-title"
-            className="relative w-full max-w-2xl cursor-default rounded-2xl border border-surface-variant bg-surface-lowest p-6 shadow-[0_28px_64px_-24px_rgba(45,52,51,0.45)] sm:p-8"
+            className="relative max-h-[min(90dvh,40rem)] w-full max-w-2xl cursor-default overflow-y-auto rounded-2xl border border-surface-variant bg-surface-lowest p-6 shadow-[0_28px_64px_-24px_rgba(45,52,51,0.45)] sm:p-8"
             onClick={(e) => e.stopPropagation()}
           >
             <header className="space-y-3 border-b border-surface-variant pb-6">
