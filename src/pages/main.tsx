@@ -1,4 +1,5 @@
 import Hero from '../components/Hero'
+import Skills from '../components/Skills'
 import Intro from '../components/intro'
 
 export default function Main() {
@@ -6,6 +7,7 @@ export default function Main() {
         <>
             <Hero />
             <Intro />
+            <Skills />
         </>
     )
 }
